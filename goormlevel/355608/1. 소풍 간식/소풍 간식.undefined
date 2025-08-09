@@ -1,0 +1,26 @@
+// Run by Node.js
+const readline = require('readline');
+
+(async () => {
+	let rl = readline.createInterface({ input: process.stdin });
+	let N = 0;
+	
+	for await (const line of rl) {
+		N = line
+		rl.close();
+	}
+
+	let icecream = 0;
+	let snack = 0;
+	
+	if(N % 2 === 0) {
+			icecream = N/2;
+			snack = N/2
+	} else {
+		icecream = N/2 - 0.5;
+		snack = N/2 + 0.5;
+	}
+
+	console.log(icecream * snack)
+	process.exit();
+})();
