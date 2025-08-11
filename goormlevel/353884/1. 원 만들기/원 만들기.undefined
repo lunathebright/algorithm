@@ -1,0 +1,18 @@
+// Run by Node.js
+const readline = require('readline');
+
+(async () => {
+	let rl = readline.createInterface({ input: process.stdin });
+	let H = 0;
+	let W = 0;
+	
+	for await (const line of rl) {
+		const splitted = line.split(" ")
+		H = splitted[0];
+		W = splitted[1]
+		rl.close();
+	}
+
+	console.log(Math.min(H, W))
+	process.exit();
+})();
