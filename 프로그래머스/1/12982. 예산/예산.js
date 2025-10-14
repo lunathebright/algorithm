@@ -1,11 +1,15 @@
 function solution(d, budget) {
-    const sorted = d.sort((a,b) => a -b);
+    d.sort((a, b) => a - b);
     
-    let result = 0;
+    let count = 0;
+    let total = 0;
     
-    d.forEach(price => {
-        (budget - price  >= 0) && (budget -= price, result++)
+    d.forEach((el) => {
+        if(total < budget && total + el <= budget) {
+            total += el
+            count++
+        }
     })
-    
-    return result
+
+    return count
 }
