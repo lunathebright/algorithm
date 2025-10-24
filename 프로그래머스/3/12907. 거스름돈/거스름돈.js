@@ -1,11 +1,13 @@
 function solution(n, money) {
-    const dp = Array(n + 1).fill(0);
-    dp[0] = 1;
-    
-    for(let coin of money) {
-        for(let i = coin; i <= n; i++) {
-            dp[i] += dp[i - coin]
+
+    const ways = Array(n + 1).fill(0)
+    ways[0] = 1 
+
+    for (const coin of money) {
+        for (let amount = coin; amount <= n; amount++) {
+            ways[amount] += ways[amount - coin]
         }
     }
-    return dp[n]
+
+    return ways[n] % 1000000007
 }
